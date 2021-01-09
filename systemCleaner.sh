@@ -1,6 +1,5 @@
 #!/bin/bash
-# Removes old revisions of snaps
-# CLOSE ALL SNAPS BEFORE RUNNING THIS
+# Removes old revisions of snaps and clean apt cache
 set -eu
 
 echo "Cache apt..."
@@ -22,9 +21,6 @@ snap list --all | awk '/disabled/{print $1, $3}' |
 echo "After cleaning..."
 du -h /var/lib/snapd/snaps
 
-
 echo "thumbnails"
 du -sh ~/.cache/thumbnails
 rm -rf ~/.cache/thumbnails/*
-
-
