@@ -24,3 +24,14 @@ du -h /var/lib/snapd/snaps
 echo "thumbnails"
 du -sh ~/.cache/thumbnails
 rm -rf ~/.cache/thumbnails/*
+
+
+echo "Cleaning Docker system this is gonig to ask you for confirmation..."
+docker rmi $(docker images)
+docker image prune -a
+docker container prune
+docker volume prune
+docker network prune --filter "until=72h"
+docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+
+
