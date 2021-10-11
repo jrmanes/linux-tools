@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Downgrade from Ubuntu 21.04(hirsute) to 20.10(groovy)
+sudo sed -i 's/hirsute/groovy/g' /etc/apt/sources.list
+
+sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
+
+# If you get any issue, you will have to get into Recovery Mode and clear the packages there.
+# Accessing in the Grub secction.
+# Enable network
+# sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
