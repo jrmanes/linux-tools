@@ -34,7 +34,8 @@ echo -e "${blueColour}[INFO]${endColour} ${grayColour}Preparing Backup...${endCo
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}Source Folder:${endColour} ${greenColour}$SOURCE_FOLDER ${endColour}"
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}Dest Folder:${endColour} ${greenColour}$DEST_FOLDER ${endColour}"
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}Exclussions to apply:${endColour} ${greenColour}$EXCLUSSIONS ${endColour}"
-echo -e "${blueColour}[INFO]${endColour} ${grayColour}Total folders to backup:${endColour} ${greenColour} ${TOTAL_FOLDERS_TO_BACKUP} ${endColour}"
+echo -e "${blueColour}[INFO]${endColour} ${grayColour}Total items:${endColour} ${greenColour} ${TOTAL_FOLDERS_TO_BACKUP} ${endColour}"
+echo -e "${blueColour}[INFO]${endColour} ${grayColour}Items to backup:${endColour}\n${blueColour}[INFO] ${endColour}[*] ${greenColour}$(ls $SOURCE_FOLDER | grep -Ev ${EXCLUSSIONS} | xargs | tr ' ' ',') ${endColour}"
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}[***********************************************************] ${endColour}"
 
 sleep 2
