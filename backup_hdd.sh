@@ -16,7 +16,7 @@ MODE=azh
 MODE_DEBUG=azvP
 
 EXCLUSSIONS_INPUT=$3
-DEFAULT_EXCLUSSIONS="Program*|System*"
+DEFAULT_EXCLUSSIONS="Program*|System*|NVIDIA*"
 EXCLUSSIONS="${EXCLUSSIONS_INPUT:-$DEFAULT_EXCLUSSIONS}"
 
 TOTAL_FOLDERS_TO_BACKUP=$(ls $SOURCE_FOLDER | grep -Ev ${EXCLUSSIONS} | wc -l)
@@ -25,7 +25,7 @@ COUNTER=1
 trap ctrl_c INT
 
 function ctrl_c(){
-	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Exiting...${endColour}"; sleep 1
+	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Exiting...${endColour}"
 	exit 1
 }
 
