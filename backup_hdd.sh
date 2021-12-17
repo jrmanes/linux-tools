@@ -1,4 +1,6 @@
 #!/bin/bash
+# Usage: 
+# Example: for i in {Data,Cifrado};do ./backup_hdd.sh /media/$i /media/joseramon/Toshiba_Hdd_Ext/$i;done
 
 #Colours
 greenColour="\e[0;32m\033[1m"
