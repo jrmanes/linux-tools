@@ -45,7 +45,9 @@ sleep 2
 for i in $(ls $SOURCE_FOLDER | grep -Ev ${EXCLUSSIONS});do
     TMP_FOLDER=`echo $SOURCE_FOLDER/$i`
     echo -e "${blueColour}[INFO]${endColour} ${grayColour}Backing up:${endColour} ${yellowColour}$i${endColour} ${grayColour}=> Size=${endColour} ${greenColour}$(du -sh ${TMP_FOLDER} | cut -d'/' -f1) ${endColour} ${grayColour}- Folder${endColour}${greenColour} ${yellowColour}${COUNTER}${endColour}/${greenColour}${TOTAL_FOLDERS_TO_BACKUP} ${endColour}"
+    # sync all the files and move it to the background
     rsync -$MODE $SOURCE_FOLDER/$i $DEST_FOLDER/ &
+    # increase the counter
     COUNTER=$(( COUNTER + 1 ))
 done; wait
 
@@ -55,3 +57,4 @@ echo -e "${grayColour}[*********************************************************
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}$(du -sh $SOURCE_FOLDER)${endColour} ${greenColour}"
 echo -e "${blueColour}[INFO]${endColour} ${grayColour}$(du -sh $DEST_FOLDER)${endColour} ${greenColour}"
 echo -e "${grayColour}[********************************************************************]${endColour}"
+
