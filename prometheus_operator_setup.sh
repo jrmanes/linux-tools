@@ -14,13 +14,11 @@ grayColour="\e[0;37m\033[1m"
 ###############################################
 
 echo -e "\n${yellowColour}[INFO]${endColour} ${blueColour}Downloading the project...${endColour}"
-
 git clone https://github.com/prometheus-operator/kube-prometheus.git
 
 echo -e "\n${yellowColour}[INFO]${endColour} ${blueColour}Creating the resources... ${endColour}"
 # Create the namespace and CRDs, and then wait for them to be availble before creating the remaining resources
 kubectl create -f kube-prometheus/manifests/setup
-
 
 echo -e "\n${yellowColour}[INFO]${endColour} ${blueColour}Waiting to get all the services ready... ${endColour}"
 sleep 3
@@ -29,7 +27,7 @@ until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; 
 echo -e "\n${yellowColour}[INFO]${endColour} ${blueColour}Create manifests resources... ${endColour}"
 kubectl create -f kube-prometheus/manifests/
 
-sleep 10
+sleep 5
 
 echo -e "\n${yellowColour}[INFO]${endColour} ${blueColour} Modify permissiosn for cluster role in order to allow get objects from all namespace...${endColour}"
 kubectl delete clusterrole prometheus-k8s
