@@ -3,6 +3,8 @@
 # Description: Install NodeExporter for Prometheus
 # Date: 26/02/2019
 # Author: Jose Ramon Mañes
+# TODO: 
+# Create an Ansible playbook  
 ################################
 sudo useradd node_exporter -s /sbin/nologin
 cd /opt
