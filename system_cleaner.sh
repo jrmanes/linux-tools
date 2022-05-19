@@ -7,9 +7,14 @@ sudo du -sh /var/cache/apt
 
 echo "Cleaning with autoremove, autoclean and clean"
 sudo apt-get -y autoremove
+sudo apt-get -y autoremove --purge
 sudo apt-get -y autoclean
 sudo apt-get -y clean
 
+echo "Cleaning journal"
+journalctl --disk-usage
+journalctl --vacuum-time=7d
+ 
 echo "Before cleaning"
 du -h /var/lib/snapd/snaps
 
